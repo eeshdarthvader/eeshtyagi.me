@@ -3,10 +3,12 @@
   "scripts": {
     "dev": "next",
     "build": "node ./scripts/gen-rss.js && next build",
-    "start": "next start"
+    "start": "next start",
+    "convert": "node ./scripts/medium-to-markdown.js >> ./pages/posts/file.md"
   },
   "dependencies": {
     "gray-matter": "^4.0.2",
+    "medium-to-markdown": "^0.0.3",
     "next": "latest",
     "nextra": "^2.0.0-beta.5",
     "nextra-theme-blog": "^0.1.5",
