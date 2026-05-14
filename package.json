@@ -4,16 +4,16 @@
     "dev": "next",
     "build": "node ./scripts/gen-rss.js && next build",
     "start": "next start",
-    "convert": "node ./scripts/medium-to-markdown.js >> ./pages/posts/file.md"
+    "convert": "node ./scripts/medium-to-markdown.js >> ./content/posts/file.md"
   },
   "dependencies": {
-    "gray-matter": "^4.0.2",
+    "gray-matter": "^4.0.3",
     "medium-to-markdown": "^0.0.3",
-    "next": "latest",
-    "nextra": "^2.0.0-beta.5",
-    "nextra-theme-blog": "^0.1.5",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "next": "16.2.6",
+    "nextra": "^4.6.1",
+    "nextra-theme-blog": "^4.6.1",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
     "rss": "^1.2.2"
   },
   "prettier": {
@@ -22,5 +22,8 @@
     "tabWidth": 2,
     "trailingComma": "none",
     "semi": false
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3"
   }
 }
