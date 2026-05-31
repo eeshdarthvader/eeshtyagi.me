@@ -1,7 +1,6 @@
 import { Footer, Layout, Navbar, ThemeSwitch } from 'nextra-theme-blog'
 import { Head } from 'nextra/components'
 import { getPageMap } from 'nextra/page-map'
-import SiteSearch from './components/SiteSearch'
 import 'nextra-theme-blog/style.css'
 import '../styles/main.css'
 
@@ -18,7 +17,8 @@ export default async function RootLayout({ children }) {
       <body>
         <Layout>
           <Navbar pageMap={pageMap}>
-            <SiteSearch pageMap={pageMap} />
+            <a href="/posts" className="top-nav-link">Posts</a>
+            <a href="/art" className="top-nav-link">Art</a>
             <ThemeSwitch />
           </Navbar>
 
