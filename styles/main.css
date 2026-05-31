@@ -115,3 +115,18 @@ img.next-image {
 .dark .top-nav-link {
   color: #cbd5e1;
 }
+
+.painting-frame {
+  margin: 1.5rem 0 2.25rem;
+  padding: 14px;
+  border: 6px solid #7c5c3c;
+  border-radius: 8px;
+  background: #f8f1e7;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.18);
+}
+
+.dark .painting-frame {
+  border-color: #6b4f35;
+  background: #1a1410;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
+}
