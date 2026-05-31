@@ -26,6 +26,11 @@ body {
   background: #f3f6fb;
   color: #0f172a;
 }
+
+.dark body {
+  background: #02050b;
+  color: #f1f5f9;
+}
 b,
 strong,
 h3,
@@ -75,8 +80,16 @@ img.next-image {
   color: #0074de;
 }
 
+.dark .prose a {
+  color: #93c5fd;
+}
+
 .nav-line .nav-link {
   color: #69778c;
+}
+
+.dark .nav-line .nav-link {
+  color: #b6c2d1;
 }
 
 .scalable-logo {
