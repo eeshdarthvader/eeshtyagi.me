@@ -29,6 +29,8 @@ export default function SiteSearch({ pageMap }) {
 
   const pages = useMemo(() => flatten(pageMap), [pageMap])
 
+  const isOpen = query.trim().length > 0
+
   const results = useMemo(() => {
     const q = query.trim().toLowerCase()
     if (!q) return []
@@ -42,51 +44,32 @@ export default function SiteSearch({ pageMap }) {
   }, [query, pages])
 
   return (
-    <div style={{ position: 'relative' }}>
+    <div className="site-search" onBlur={() => setTimeout(() => setQuery(''), 120)}>
       <input
+        className="site-search-input"
         type="search"
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Search docs..."
-        style={{
-          border: '1px solid #334155',
-          borderRadius: 8,
-          padding: '8px 10px',
-          background: 'transparent',
-          minWidth: 220
-        }}
       />
 
-      {results.length > 0 && (
-        <div
-          style={{
-            position: 'absolute',
-            right: 0,
-            top: '110%',
-            width: 320,
-            maxWidth: '90vw',
-            border: '1px solid #334155',
-            borderRadius: 10,
-            background: 'var(--x-color-nextra-bg, #0b1220)',
-            zIndex: 50,
-            overflow: 'hidden'
-          }}
-        >
-          {results.map((result) => (
-            <Link
-              key={result.route}
-              href={result.route}
-              style={{
-                display: 'block',
-                padding: '10px 12px',
-                borderBottom: '1px solid #1e293b',
-                textDecoration: 'none'
-              }}
-              onClick={() => setQuery('')}
-            >
-              {result.title}
-            </Link>
-          ))}
+      {isOpen && (
+        <div className="site-search-results">
+          {results.length ? (
+            results.map((result) => (
+              <Link
+                key={result.route}
+                href={result.route}
+                className="site-search-result"
+                onClick={() => setQuery('')}
+              >
+                <span>{result.title}</span>
+                <small>{result.route}</small>
+              </Link>
+            ))
+          ) : (
+            <div className="site-search-empty">No matches</div>
+          )}
         </div>
       )}
     </div>
