@@ -1,6 +1,7 @@
 import { Footer, Layout, Navbar, ThemeSwitch } from 'nextra-theme-blog'
-import { Head, Search } from 'nextra/components'
+import { Head } from 'nextra/components'
 import { getPageMap } from 'nextra/page-map'
+import SiteSearch from './components/SiteSearch'
 import 'nextra-theme-blog/style.css'
 import '../styles/main.css'
 
@@ -9,13 +10,15 @@ export const metadata = {
 }
 
 export default async function RootLayout({ children }) {
+  const pageMap = await getPageMap()
+
   return (
     <html lang="en" suppressHydrationWarning>
       <Head />
       <body>
         <Layout>
-          <Navbar pageMap={await getPageMap()}>
-            <Search />
+          <Navbar pageMap={pageMap}>
+            <SiteSearch pageMap={pageMap} />
             <ThemeSwitch />
           </Navbar>
 
